@@ -1,0 +1,5 @@
+quizzes:
+  - id: python
+    title: Python Programming
+    description: Basic Python programming skills test
+    logo: python.png

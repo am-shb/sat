@@ -1,0 +1,27 @@
+id: python
+title: Python Programming
+programming_task: "https://colab."
+questions:
+  - id: "1"
+    choices:
+      - Integer
+      - Float
+      - String
+      - Double
+    answer_index: 3
+
+  - id: "2"
+    choices:
+      - 15
+      - 125
+      - 243
+      - Error
+    answer_index: 1
+
+  - id: "3"
+    choices:
+      - a
+      - b
+      - c
+      - d
+    answer_index: 0
