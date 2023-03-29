@@ -29,7 +29,7 @@
         <v-col cols="auto">
           <v-btn
             color="primary"
-            href="quizzes"
+            href="start"
             min-width="228"
             size="x-large"
             variant="flat"
