@@ -20,7 +20,6 @@ for (let i = 0; i < quiz.questions.length; i++) {
   <Quiz
     :id="quiz.id"
     :title="quiz.title"
-    :description="quiz.description"
     :questions="quiz.questions"
     :programming_task="quiz.programming_task"
   ></Quiz>

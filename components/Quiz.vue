@@ -56,10 +56,6 @@ export default defineNuxtComponent({
       type: String,
       required: true,
     },
-    description: {
-      type: String,
-      required: true,
-    },
     questions: {
       type: Array,
       required: true,
