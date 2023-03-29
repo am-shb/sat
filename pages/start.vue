@@ -1,6 +1,6 @@
 <script setup>
 const meta = await queryContent("/meta").findOne();
-let tab = ref(0);
+const tab = ref();
 
 for (let i = 0; i < meta.modules.length; i++) {
   const module_quiz_ids = meta.modules[i].quiz_ids;
@@ -31,5 +31,12 @@ for (let i = 0; i < meta.modules.length; i++) {
         </v-window>
       </v-card-text>
     </v-card>
+    <!-- This is required for the prerenderer to find all quizzes -->
+    <div class="d-none">
+      <NuxtLink
+        :to="`/quizzes/${quiz.id}`"
+        v-for="quiz in meta.quizzes"
+      ></NuxtLink>
+    </div>
   </v-container>
 </template>
