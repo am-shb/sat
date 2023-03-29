@@ -3,7 +3,7 @@
     <v-col cols="12" md="6">
       <v-card elevation="0">
         <v-card-text>
-          <ContentRenderer :value="question" />
+          <ContentRenderer :value="question" class="md-content" />
         </v-card-text>
       </v-card>
     </v-col>
@@ -32,7 +32,7 @@
   <v-dialog v-model="show_hint" width="auto">
     <v-card>
       <v-card-text>
-        <ContentRenderer :value="hint" />
+        <ContentRenderer :value="hint" class="md-content" />
       </v-card-text>
       <v-card-actions>
         <v-btn color="primary" block @click="toggle_hint">Close Hint</v-btn>
@@ -43,7 +43,7 @@
   <v-dialog v-model="show_solution" width="auto">
     <v-card>
       <v-card-text>
-        <ContentRenderer :value="solution" />
+        <ContentRenderer :value="solution" class="md-content" />
       </v-card-text>
       <v-card-actions>
         <v-btn color="primary" block @click="toggle_solution">

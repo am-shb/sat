@@ -10,7 +10,10 @@ const quiz = await queryContent(`/quizzes/${route.params.id}/quiz`).findOne();
       </v-card-title>
       <v-divider></v-divider>
       <v-card-text>
-        <ContentDoc :path="`quizzes/${route.params.id}/intro`"></ContentDoc>
+        <ContentDoc
+          :path="`quizzes/${route.params.id}/intro`"
+          class="md-content"
+        ></ContentDoc>
       </v-card-text>
       <v-divider></v-divider>
       <v-card-actions class="text-center">
