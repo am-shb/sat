@@ -1,1 +1,1 @@
-Link to docs: asd
+Link to docs: [asd](http://google.com)
