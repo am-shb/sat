@@ -20,8 +20,41 @@ questions:
 
   - id: "3"
     choices:
-      - a
-      - b
-      - c
-      - d
+      - |-
+        And the third line
+        in a long answer
+        lorem ipsum lorem ipsum lorem ipsum 
+        lorem ipsum lorem ipsum lorem ipsum 
+              lorem ipsum
+      - |-
+        A 
+        very
+        long
+        answer
+        here
+        that
+        takes
+        multiple
+        lines
+      - |-
+        Another
+        very
+        long
+        answer
+        here
+        that
+        takes
+        multiple
+        lines
+      - |-
+        One more
+        very
+        long
+        answer
+        here
+        that
+        takes
+        multiple
+        lines
     answer_index: 0
+    nocenter: true

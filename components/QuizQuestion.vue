@@ -1,6 +1,10 @@
 <template>
   <v-row no-gutters class="fill-height align-center">
-    <v-col cols="12" md="6">
+    <v-col
+      cols="12"
+      md="6"
+      :class="{ 'fit-to-window': $vuetify.display.mdAndUp }"
+    >
       <v-card elevation="0">
         <v-card-text>
           <ContentRenderer :value="question" class="md-content" />
@@ -10,19 +14,25 @@
 
     <v-divider :vertical="$vuetify.display.mdAndUp"></v-divider>
 
-    <v-col cols="12" md="6">
+    <v-col
+      cols="12"
+      md="6"
+      :class="{ 'fit-to-window': $vuetify.display.mdAndUp }"
+    >
       <v-card elevation="0">
         <v-card-text>
           <v-btn
-            class="my-2"
+            class="my-2 text-none quiz-choice"
+            :class="{ 'justify-start': nocenter, 'text-start': nocenter }"
             v-for="(choice, idx) in choices"
             :key="idx"
             block
             @click="answer_selected(idx)"
-            variant="outlined"
-            color="secondary"
+            variant="tonal"
+            :color="button_color(idx)"
           >
-            {{ choice }}
+            <!-- {{ choice }} -->
+            <span v-html="nl2br(choice)"></span>
           </v-btn>
         </v-card-text>
       </v-card>
@@ -80,6 +90,11 @@ export default defineNuxtComponent({
       type: Number,
       required: false,
     },
+    nocenter: {
+      type: Boolean,
+      required: false,
+      default: false,
+    },
   },
   emits: ["answered"],
   data() {
@@ -98,13 +113,38 @@ export default defineNuxtComponent({
     answer_selected(idx) {
       this.$emit("answered", idx);
     },
+    button_color(idx) {
+      if (this.selected_choice === null) {
+        return "secondary";
+      } else if (this.selected_choice === idx) {
+        if (this.selected_choice === this.answer_index) {
+          return "success";
+        } else {
+          return "error";
+        }
+      } else {
+        return "secondary";
+      }
+    },
   },
 });
 </script>
 <style>
+.fit-to-window {
+  max-height: calc(100vh - 124px);
+  overflow-y: auto;
+}
 pre {
   background-color: #18181b;
   border-radius: 5px;
   padding: 10px;
+}
+.quiz-choice {
+  height: auto !important;
+}
+.quiz-choice .v-btn__content {
+  white-space: normal;
+  padding-top: 10px;
+  padding-bottom: 10px;
 }
 </style>

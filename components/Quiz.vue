@@ -6,6 +6,7 @@
       :hint="current_question.hint"
       :solution="current_question.solution"
       :answer_index="current_question.answer_index"
+      :nocenter="!!current_question.nocenter"
       :selected_choice="selected_answers[current_question_index]"
       @answered="answer_selected"
       ref="question"
