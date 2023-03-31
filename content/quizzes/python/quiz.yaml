@@ -9,6 +9,7 @@ questions:
       - String
       - Double
     answer_index: 3
+    solution: This is an inline **markdown** __solution__!
 
   - id: "2"
     choices:
@@ -58,3 +59,17 @@ questions:
         lines
     answer_index: 0
     nocenter: true
+    hint: |-
+      # Example hint
+      This inline hint contains multiple lines!
+
+  - id: "4"
+    choices:
+      - 1
+      - 2
+      - 3
+      - 4
+    answer_index: 1
+    question: Inline **Question**!
+    hint: inline [hint](https://google.com) here!
+    solution: Here is the solution :)
