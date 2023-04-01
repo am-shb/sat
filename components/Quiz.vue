@@ -161,6 +161,10 @@ export default defineNuxtComponent({
     last_question() {
       return this.current_question_index == this.questions.length - 1;
     },
+    ...mapStores(useQuizStore),
+    quizState() {
+      return this.quizStore.quizState(this.id);
+    },
   },
   methods: {
     next_question() {
@@ -188,6 +192,27 @@ export default defineNuxtComponent({
       this.correct_dialog = false;
       this.incorrect_dialog = false;
     },
+    ...mapActions(useQuizStore, [
+      "createQuizState",
+      "setQuizAnswer",
+      "setQuizCurrentQuestion",
+    ]),
+  },
+  watch: {
+    current_question_index(newVal) {
+      this.setQuizCurrentQuestion(this.id, newVal);
+    },
+    selected_answers(newVal) {
+      this.setQuizAnswer(this.id, newVal);
+    },
+  },
+  mounted() {
+    if (this.quizState) {
+      this.selected_answers = this.quizState.answers;
+      this.current_question_index = this.quizState.currentQuestion;
+    } else {
+      this.createQuizState(this.id, this.questions.length);
+    }
   },
 });
 </script>

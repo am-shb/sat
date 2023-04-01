@@ -1,7 +1,3 @@
-<script setup>
-const route = useRoute();
-const quiz = await queryContent(`/quizzes/${route.params.id}/quiz`).findOne();
-</script>
 <template>
   <v-container>
     <v-card>
@@ -11,16 +7,64 @@ const quiz = await queryContent(`/quizzes/${route.params.id}/quiz`).findOne();
       <v-divider></v-divider>
       <v-card-text>
         <ContentDoc
-          :path="`quizzes/${route.params.id}/intro`"
+          :path="`quizzes/${quizId}/intro`"
           class="md-content"
         ></ContentDoc>
+
+        <ClientOnly>
+          <v-alert v-if="quizState && quizState.lastVisited" color="info">
+            You last visited this test on:
+            {{ new Date(quizState.lastVisited).toLocaleString() }}
+          </v-alert>
+          <v-alert v-if="quizState && quizState.completed" color="info">
+            You already completed this test. You can retake it if you want.
+          </v-alert>
+        </ClientOnly>
       </v-card-text>
       <v-divider></v-divider>
       <v-card-actions class="text-center">
-        <v-btn color="primary" :to="`/quizzes/${route.params.id}/test`">
-          Begin test
-        </v-btn>
+        <ClientOnly>
+          <v-btn color="primary" :to="`/quizzes/${quizId}/test`">
+            {{ quizState && quizState.lastVisited ? "Resume" : "Begin" }} test
+          </v-btn>
+          <v-btn
+            color="primary"
+            v-if="quizState && quizState.lastVisited"
+            @click="reset_progress"
+          >
+            Reset progress
+          </v-btn>
+        </ClientOnly>
+
+        <!-- This is required for the prerenderer to find the test page -->
+        <div class="d-none">
+          <NuxtLink :to="`/quizzes/${quizId}/test`"></NuxtLink>
+        </div>
       </v-card-actions>
     </v-card>
   </v-container>
 </template>
+<script>
+export default defineNuxtComponent({
+  async setup() {
+    const route = useRoute();
+    const quizId = route.params.id;
+    const quiz = await queryContent(`/quizzes/${quizId}/quiz`).findOne();
+    return {
+      quiz,
+      quizId,
+    };
+  },
+  computed: {
+    ...mapStores(useQuizStore),
+    quizState() {
+      return this.quizStore.quizState(this.$route.params.id);
+    },
+  },
+  methods: {
+    reset_progress() {
+      this.quizStore.deleteQuizState(this.$route.params.id);
+    },
+  },
+});
+</script>
