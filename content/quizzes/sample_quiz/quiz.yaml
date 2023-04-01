@@ -1,6 +1,5 @@
-id: python
-title: Python Programming
-programming_task: "https://colab."
+id: sample_quiz
+programming_task: "https://colab.research.google.com"
 questions:
   - id: "1"
     choices:

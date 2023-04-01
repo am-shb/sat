@@ -1,15 +1,11 @@
 quizzes:
-  - id: python
-    title: Python Programming
-    description: Basic Python programming skills test
-
-  - id: data
-    title: Data Manipulation
-    description: Basic Numpy and Pandas
+  - id: sample_quiz
+    title: A sample quiz
+    description: A demo quiz
 
 modules:
-  - id: m1
-    title: Casual Inference
-    description: Required module for the CI lab
+  - id: my_module
+    title: Sample Module
+    description: This module holds multiple quizzess
     quiz_ids:
-      - python
+      - sample_quiz
