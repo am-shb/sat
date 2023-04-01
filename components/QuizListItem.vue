@@ -2,7 +2,7 @@
   <v-list-item :title="quiz.title" :subtitle="quiz.description">
     <template v-slot:prepend>
       <v-avatar>
-        <v-img :src="`/quiz_logos/${quiz.logo}`" />
+        <v-img :src="`/assets/${quiz.id}/logo.png`" />
       </v-avatar>
     </template>
 

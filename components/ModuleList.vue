@@ -1,11 +1,11 @@
 <template>
   <v-expansion-panels>
-    <v-expansion-panel v-for="module in modules">
+    <v-expansion-panel v-for="module in modules" :key="module.id">
       <v-expansion-panel-title>
         <v-list-item :title="module.title" :subtitle="module.description">
           <template v-slot:prepend>
             <v-avatar>
-              <v-img src="/quiz_logos/python.png" />
+              <v-img :src="`/assets/module_logos/${module.id}.png`" />
             </v-avatar>
           </template>
         </v-list-item>

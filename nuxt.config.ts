@@ -1,4 +1,6 @@
 // https://nuxt.com/docs/api/configuration/nuxt-config
+import copyAssets from "./copyAssets";
+
 export default defineNuxtConfig({
   modules: [
     "@nuxt/content",
@@ -43,5 +45,8 @@ export default defineNuxtConfig({
     highlight: {
       preload: ["python"],
     },
+  },
+  hooks: {
+    "nitro:build:public-assets": copyAssets,
   },
 });

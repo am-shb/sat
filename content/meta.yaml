@@ -2,17 +2,14 @@ quizzes:
   - id: python
     title: Python Programming
     description: Basic Python programming skills test
-    logo: python.png
 
   - id: data
     title: Data Manipulation
     description: Basic Numpy and Pandas
-    logo: python.png
 
 modules:
   - id: m1
     title: Casual Inference
     description: Required module for the CI lab
-    logo: python.png
     quiz_ids:
       - python
