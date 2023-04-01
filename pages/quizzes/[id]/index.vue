@@ -16,7 +16,11 @@
             You last visited this test on:
             {{ new Date(quizState.lastVisited).toLocaleString() }}
           </v-alert>
-          <v-alert v-if="quizState && quizState.completed" color="info">
+          <v-alert
+            v-if="quizState && quizState.completed"
+            color="success"
+            class="mt-3"
+          >
             You already completed this test. You can retake it if you want.
           </v-alert>
         </ClientOnly>
@@ -36,9 +40,10 @@
           </v-btn>
         </ClientOnly>
 
-        <!-- This is required for the prerenderer to find the test page -->
+        <!-- This is required for the prerenderer to find the test and finish page -->
         <div class="d-none">
           <NuxtLink :to="`/quizzes/${quizId}/test`"></NuxtLink>
+          <NuxtLink :to="`/quizzes/${quizId}/finish`"></NuxtLink>
         </div>
       </v-card-actions>
     </v-card>

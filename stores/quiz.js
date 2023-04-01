@@ -21,6 +21,9 @@ export const useQuizStore = defineStore({
       this.quizzes[quizId].currentQuestion = questionId;
       this.quizzes[quizId].lastVisited = new Date();
     },
+    setQuizCompleted(quizId, completed) {
+      this.quizzes[quizId].completed = completed;
+    },
     deleteQuizState(quizId) {
       delete this.quizzes[quizId];
     },

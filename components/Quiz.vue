@@ -34,7 +34,7 @@
         variant="text"
         size="large"
       >
-        <v-icon>mdi-help-circle</v-icon>
+        <v-icon>mdi-lightbulb</v-icon>
         <v-tooltip activator="parent" location="top">Show Hint</v-tooltip>
       </v-btn>
       <v-btn
@@ -43,7 +43,7 @@
         variant="text"
         size="large"
       >
-        <v-icon>mdi-check-circle</v-icon>
+        <v-icon>mdi-help-circle</v-icon>
         <v-tooltip activator="parent" location="top">View Solution</v-tooltip>
       </v-btn>
       <v-btn
@@ -54,6 +54,15 @@
       >
         <v-icon>mdi-chevron-right</v-icon>
         <v-tooltip activator="parent" location="top">Next Question</v-tooltip>
+      </v-btn>
+      <v-btn
+        v-if="last_question"
+        @click="finish_quiz"
+        variant="text"
+        size="large"
+      >
+        <v-icon>mdi-check-circle</v-icon>
+        <v-tooltip activator="parent" location="top">Finish Quiz</v-tooltip>
       </v-btn>
     </v-footer>
   </div>
@@ -78,7 +87,7 @@
           >
             View Solution
           </v-btn>
-          <v-btn v-if="last_question" color="secondary" @click="next_question">
+          <v-btn v-if="last_question" color="secondary" @click="finish_quiz">
             Finish Quiz
           </v-btn>
           <v-btn v-else color="secondary" @click="next_question">
@@ -191,6 +200,10 @@ export default defineNuxtComponent({
     close_dialogs() {
       this.correct_dialog = false;
       this.incorrect_dialog = false;
+    },
+    finish_quiz() {
+      this.quizStore.setQuizCompleted(this.$route.params.id, true);
+      this.$router.push("finish");
     },
     ...mapActions(useQuizStore, [
       "createQuizState",
