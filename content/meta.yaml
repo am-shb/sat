@@ -3,6 +3,10 @@ quizzes:
     title: A sample quiz
     description: A demo quiz
 
+  - id: python
+    title: Python Programming
+    description: Basic python programming syntax
+
 modules:
   - id: my_module
     title: Sample Module
