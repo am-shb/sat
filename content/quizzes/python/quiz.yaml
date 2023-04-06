@@ -12,13 +12,6 @@ questions:
     solution:
 
   - id: "2"
-    question: |-
-      What is the output of the following code?
-      ```python
-      x = 5
-      y = 3
-      print(x ** y)
-      ```
     choices:
       - "15"
       - "125"
@@ -29,13 +22,6 @@ questions:
     solution:
 
   - id: "3"
-    question: |-
-      What is the output of the following code?
-      ```python
-      a = "hello"
-      b = "world"
-      print(a + b)
-      ```
     choices:
       - helloworld
       - hello world
@@ -68,18 +54,6 @@ questions:
     solution:
 
   - id: "6"
-    question: |-
-      What is the output of the following code?
-      ```python
-      age = 21
-      height = 176
-      if age > 18 and height >= 150:
-      print("You are eligible to take this ride!")
-      elif age <= 18:
-      print("Sorry, you are too young to take this ride!")
-      else:
-      print("Sorry, you don't meet the height requirements for this ride!")
-      ```
     choices:
       - You are eligible to take this ride!
       - Sorry, you are too young to take this ride!
@@ -90,12 +64,6 @@ questions:
     solution:
 
   - id: "7"
-    question: |-
-      What is the output of the following code?
-      ```python
-      my_list = [1, 2, 3, 4]
-      print(my_list[2])
-      ```
     choices:
       - "1"
       - "2"
@@ -112,21 +80,14 @@ questions:
       - '(B) dict = {1: "one", 2: "two", 3: "three"}'
       - '(C) dict = [1: "one", 2: "two", 3: "three"]'
       - '(D) dict = "key1: value1, key2: value2"'
-      - "**A** and **B**"
-      - "**A** and **C**"
+      - "A and B"
+      - "A and C"
     answer_index: 4
     hint:
     solution:
     nocenter: true
 
   - id: "9"
-    question: |-
-      What is the output of the following code?
-      ```python
-      for i in range(1, 6):
-      if i % 2 == 0:
-      print(i)
-      ```
     choices:
       - 1, 3, 5
       - 2, 4
@@ -137,14 +98,6 @@ questions:
     solution:
 
   - id: "10"
-    question: |-
-      What is the output of the following code?
-      ```python
-      x = 5
-      while x > 0:
-      print(x)
-      x -= 1
-      ```
     choices:
       - 5, 4, 3, 2, 1
       - 4, 3, 2, 1
@@ -189,17 +142,6 @@ questions:
     nocenter: true
 
   - id: "14"
-    question: |-
-      What is the output of the following code?
-      ```python
-      def power(base, exponent = 10):
-        result = 1
-        for i in range(exponent):
-          result *= base
-        return result
-
-      power(2)
-      ```
     choices:
       - "1024"
       - "100"
@@ -210,11 +152,6 @@ questions:
     solution:
 
   - id: "15"
-    question: |-
-      What is the output of the following code?
-      ```python
-      print([i*5 for i in range(5)])
-      ```
     choices:
       - "[0 5 10 15 20]"
       - "[5 10 15 20 25]"
