@@ -8,15 +8,18 @@ Vector self assessment web app is a package that enables easy generation of quiz
 2. clone this repo
 
 ```bash
-git clone git@github.com:am-shb/sat.git
-cd sat
+git clone git@github.com:VectorInstitute/self-assessment.git
 ```
+
+cd sat
+
+````
 
 3. Install the dependencies
 
 ```bash
 yarn install
-```
+````
 
 4. Build the application
 
@@ -137,6 +140,10 @@ A question can be defined using the following pattern:
 - `solution` (_Optional_): The solution of the quistion in markdown. If not included, the `{question_id}/solution.md` file will be loaded from the quiz directory. If the file also does not exist, no solution will be available.
 - `nocenter` (_Optional_): If set to `true`, the choices' text will not be centered. This is specially useful when writing code in the choices. Default is is set to false.
 
+* If your markdown contains code block, you must write the content in a separate file and can not include it inline.
+
+````yaml
+
 ```yaml
 id: "1"
 choices:
@@ -149,7 +156,7 @@ question: Which of the following is **NOT** a Python data type?
 hint: "Data types in python: [Python docs](https://docs.python.org/3/library/datatypes.html)"
 solution: This is an inline _Markdown_ solution!
 nocenter: false
-```
+````
 
 ##### Multiline inline values
 
