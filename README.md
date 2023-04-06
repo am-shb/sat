@@ -9,17 +9,14 @@ Vector self assessment web app is a package that enables easy generation of quiz
 
 ```bash
 git clone git@github.com:VectorInstitute/self-assessment.git
-```
-
 cd sat
-
-````
+```
 
 3. Install the dependencies
 
 ```bash
 yarn install
-````
+```
 
 4. Build the application
 
@@ -142,8 +139,6 @@ A question can be defined using the following pattern:
 
 * If your markdown contains code block, you must write the content in a separate file and can not include it inline.
 
-````yaml
-
 ```yaml
 id: "1"
 choices:
@@ -156,7 +151,7 @@ question: Which of the following is **NOT** a Python data type?
 hint: "Data types in python: [Python docs](https://docs.python.org/3/library/datatypes.html)"
 solution: This is an inline _Markdown_ solution!
 nocenter: false
-````
+```
 
 ##### Multiline inline values
 
