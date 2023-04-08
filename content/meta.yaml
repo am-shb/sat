@@ -5,7 +5,11 @@ quizzes:
 
   - id: python
     title: Python Programming
-    description: Basic python programming syntax
+    description: Basic Python programming syntax
+
+  - id: model_development
+    title: Model Development
+    description: Basic model development using Python
 
 modules:
   - id: my_module
